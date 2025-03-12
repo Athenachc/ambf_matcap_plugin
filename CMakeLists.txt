@@ -48,9 +48,16 @@ include_directories(${AMBF_INCLUDE_DIRS})
 
 add_definitions(${AMBF_DEFINITIONS})
 
-set (PLUGIN_NAME matcap_plugin)
-set (PROJECT_SOURCE_FILES ${PROJECT_SOURCE_DIR}/plugins/object/${PLUGIN_NAME}.cpp ${PROJECT_SOURCE_DIR}/plugins/object/${PLUGIN_NAME}.h)
+set (OBJECT_PLUGIN_NAME matcap_object_plugin)
+set (OBJECT_SOURCE_FILES ${PROJECT_SOURCE_DIR}/plugins/object/${OBJECT_PLUGIN_NAME}.cpp ${PROJECT_SOURCE_DIR}/plugins/object/${OBJECT_PLUGIN_NAME}.h)
+add_library(${OBJECT_PLUGIN_NAME} SHARED ${OBJECT_SOURCE_FILES})
+target_link_libraries (${OBJECT_PLUGIN_NAME} ambf_framework)
+set_property(TARGET ${OBJECT_PLUGIN_NAME} PROPERTY POSITION_INDEPENDENT_CODE TRUE)
 
-add_library(${PLUGIN_NAME} SHARED ${PROJECT_SOURCE_FILES})
-target_link_libraries (${PLUGIN_NAME} ambf_framework)
-set_property(TARGET ${PLUGIN_NAME} PROPERTY POSITION_INDEPENDENT_CODE TRUE)
+set (MODEL_PLUGIN_NAME matcap_model_plugin)
+set (MODEL_SOURCE_FILES ${PROJECT_SOURCE_DIR}/plugins/model/${MODEL_PLUGIN_NAME}.cpp ${PROJECT_SOURCE_DIR}/plugins/model/${MODEL_PLUGIN_NAME}.h)
+add_library(${MODEL_PLUGIN_NAME} SHARED ${MODEL_SOURCE_FILES})
+target_link_libraries (${MODEL_PLUGIN_NAME} ambf_framework)
+set_property(TARGET ${MODEL_PLUGIN_NAME} PROPERTY POSITION_INDEPENDENT_CODE TRUE)
+
+
