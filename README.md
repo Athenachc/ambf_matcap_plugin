@@ -3,7 +3,7 @@
 ## 1. Create a build folder in the root of this repo
 
 ```bash
-cd ambf_pbr_plugin
+cd ambf_matcap_plugin
 mkdir build
 cd build
 cmake ..
