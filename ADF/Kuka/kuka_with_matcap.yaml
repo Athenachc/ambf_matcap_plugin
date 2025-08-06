@@ -39,7 +39,7 @@ plugins: [
       filename: libmatcap_model_plugin.so
     }
   ]
-textures: {matcap: /home/adnanmunawar/ambf_matcap_plugin/ADF/Matcap/black_metal.jpg}
+textures: {matcap: /root/ambf_matcap_plugin/ADF/Matcap/black_metal.jpg}
 
 namespace: /ambf/env/
 BODY base:
